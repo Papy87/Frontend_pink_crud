@@ -1,0 +1,130 @@
+
+<h1>Edituj Ugovor</h1>
+<hr>
+<table class="table table-striped" >
+    <tbody>
+       <tr >
+          <td colspan="1">
+             <form *ngIf="ugovorForm"  [formGroup]="ugovorForm" class="well form-horizontal"  (ngSubmit)="onSubmit()">
+                <fieldset>
+                   <!---- <div class="form-group required" >
+                           <label class="col-md-6 control-label"><b>ID</b></label>
+                           <div class="col-md-12 inputGroupContainer" >
+                              <div class="input-group " ><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input  id="city" name="city"  formControlName="idugovor"  class="form-control" required="true" value="" type="text"></div>
+                           </div>
+                         
+                     </div>
+                       ---->
+                   <div class="form-group">
+                     
+                      <label class="col-md-6 control-label"><b>Radnik</b></label>
+                      <div class="col-md-6 inputGroupContainer">
+                           <div class="input-group">
+                              <span class="input-group-addon" style="max-width: 50%;"><i class="glyphicon glyphicon-list"></i></span>
+                              <select   class="selectpicker form-control"  formControlName="ime">
+                                 <option value="{{ime}}" >{{ime}}</option>
+                              </select>
+                           </div>
+                        </div>
+                   </div>
+                   <div class="form-group">
+                        <label class="col-md-6 control-label"><b>Pravno lice</b></label>
+                        <div class="col-md-6 inputGroupContainer">
+                             <div class="input-group">
+                                <span class="input-group-addon" style="max-width: 50%;"><i class="glyphicon glyphicon-list"></i></span>
+                                <select class="selectpicker form-control"  formControlName="pravno" >
+                            
+                                 
+                                 
+                              <option value="DMS" >DMS</option>
+                                
+                                
+                              <option value="Pink" >Pink</option>
+                               
+                                </select>
+                             </div>
+                          </div>
+                     </div>
+                   <div class="form-group required">
+                      <label class="col-md-6 control-label"><b>L broj</b></label>
+                      <div class="col-md-12 inputGroupContainer">
+                         <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="addressLine2" name="addressLine2" class="form-control"  formControlName="Lbroj" required="true" value="" type="text"></div>
+                      </div>
+                   </div>
+                   <div class="form-group required" >
+                      <label class="col-md-6 control-label"><b>Matični broj</b></label>
+                      <div class="col-md-12 inputGroupContainer" >
+                         <div class="input-group " ><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input  id="city" name="city"  formControlName="maticnibroj"  class="form-control" required="true" value="" type="text"></div>
+                      </div>
+                   </div>
+                   <div class="form-group">
+                      <label class="col-md-6 control-label"><b>Radno mesto</b></label>
+                      <div class="col-md-12 inputGroupContainer">
+                         <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="state"   formControlName="radnoMesto" name="state" class="form-control"  value="" type="text"></div>
+                      </div>
+                   </div>
+                   <div class="form-group">
+                      <label class="col-md-6 control-label"><b>Prijavljena strucna sprema </b></label>
+                      <div class="col-md-12 inputGroupContainer">
+                         <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="postcode"  formControlName="prijavljenasprema" name="postcode" class="form-control"  value="" type="text"></div>
+                      </div>
+                   </div>
+                   <div class="form-group">
+                        <label class="col-md-6 control-label"><b>Zahtevana strucna sprema</b></label>
+                        <div class="col-md-12 inputGroupContainer">
+                           <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input  formControlName="Zahtevnasprema" id="postcode" name="postcode" class="form-control"  value="" type="text"></div>
+                        </div>
+                     </div>
+                   
+                
+                      <div class="col-md-12 inputGroupContainer">
+                           <label ><b>Datum početka</b></label>
+                           <input type="text" name="bday"   bsDatepicker  
+                                   class="form-control date"  formControlName="datumPocetka">
+                      </div>
+              
+                      <div class="col-md-12 inputGroupContainer">
+                           <label><b>Datum zavrsetka</b></label>
+                           <input type="text" name="bday"   bsDatepicker  
+                           class="form-control date"  formControlName="datumPrestanka">
+     
+                      </div>
+                     
+                                    
+                                   
+                     
+                   
+                   <div class="form-group">
+                      <label class="col-md-6 control-label"><b>Mesto Rada</b></label>
+                      <div class="col-md-12 inputGroupContainer">
+                         <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span><input id="email"  formControlName="mestoRada" name="email" class="form-control"  value="" type="text"></div>
+                      </div>
+                   </div>
+                  
+                   <div class="form-group">
+                        <label class="col-md-6 control-label"><b>Bruto zarada</b></label>
+                        <div class="col-md-12 inputGroupContainer">
+                           <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span><input id="phoneNumber"  formControlName="brutoZarada" name="phoneNumber"  class="form-control"  value="" type="text"></div>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                           <label class="col-md-6 control-label"><b>Neto zarada</b></label>
+                           <div class="col-md-12 inputGroupContainer">
+                              <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span><input  formControlName="netoZarada" id="phoneNumber" name="phoneNumber"  class="form-control"  value="" type="text"></div>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                              <label class="col-md-6 control-label"><b>Napomena</b></label>
+                              <div class="col-md-12 inputGroupContainer">
+                                 <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span><textarea  formControlName="napomena"   class="form-control"   type="text"></textarea></div>
+                              </div>
+                           </div>
+                </fieldset>
+                <button class="btn btn-success"  type="submit" [disabled]="!ugovorForm.valid"  >Promeni</button>
+             </form>
+          </td>
+          
+       </tr>
+    </tbody>
+ </table>
+ 

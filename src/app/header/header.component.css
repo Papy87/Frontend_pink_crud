@@ -1,0 +1,12 @@
+/*
+.navigacija{
+ background-color:rgba(156, 1, 161, 0.76);
+   
+}
+.nav.navbar-nav a {
+    color: rgb(253, 253, 253);
+}
+*/
+.dropdown.show > .dropdown-menu {
+    display: block !important;
+  }

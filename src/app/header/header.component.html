@@ -1,0 +1,40 @@
+<div *ngIf="isLoggedIn()">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-3">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggler" (click)="collapsed = !collapsed">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!----<a routerLink="/" class="navbar-brand ml-3" style="color: white;"><img src="https://nstatic.net/img/tv/channels/m/pink.png"></a> ----->
+      <a routerLink="/" class="navbar-brand ml-3" style="color: white;">
+
+        <i class="fas fa-home"></i>&nbsp; Zaposleni</a>
+    </div>
+    <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown" appHover>
+          <a  class="nav-link dropdown-toggle  navbar-brand ml-3 " id="dropdownNavMenu" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Kompanija
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownNavMenu">
+            <a class="dropdown-item" routerLink="/radnik/list">Radnici</a>
+            <a class="dropdown-item" routerLink="/ugovoriview/list">Ugovori</a>
+            <a class="dropdown-item" routerLink="/odmor/list">Odmori</a>
+
+          </div>
+        </li>
+
+      </ul>
+      <ul class="navbar-nav navbar-right">
+        <a  *ngIf="!isLoggedIn()" class="navbar-brand ml-3 nav-link  " style="color: white;" routerLink="login">
+          <i class="fas fa-sign-in-alt"></i>Login
+        </a>
+        <a *ngIf="isLoggedIn()"  class="navbar-brand ml-3 nav-link  " style="color: white;" >
+          <i class="fas fa-sign-in-alt" (click)="logout()"></i>Logout
+        </a>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>

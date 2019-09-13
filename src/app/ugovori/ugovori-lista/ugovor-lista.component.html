@@ -1,0 +1,178 @@
+
+<h1>Ugovori</h1>
+<hr>
+<form  *ngIf="ugovoriForm"  [formGroup]="ugovoriForm" class="well form-horizontal"  (ngSubmit)="onSubmit()">
+    <div class="col-lg-6 col-sm-6 col-md-4  col-lg-offset-6 col-sm-offset-6 col-md-offset-6">
+<a routerLink="../new" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Dodaj ugovor</a>
+    </div>
+    <hr>
+    
+<div *ngIf="error"><h1>Došlo je problema sa bazom podataka</h1></div>
+<table id="dtBasicExample" class="table table-striped table-bordered table-md table-hover " cellspacing="0"  width="100%" *ngIf="!error" >
+    <thead>
+        
+        <tr >
+            <th class="th-sm" >
+              
+             Pretraga
+              </th>
+            
+          <th class="th-sm">
+              <input type="text" class="form-control" formControlName="imeprezime">
+           
+    
+          </th>
+          <th class="th-sm">
+              <input type="text" class="form-control" formControlName="lbroj">
+          </th>
+  
+          <th class="th-sm">
+              
+              <input type="text" class="form-control" formControlName="maticnievidencija">
+    
+            </th>
+          <th class="th-sm"> <input type="text" class="form-control" formControlName="radnomesto" >
+          </th>
+          <th class="th-sm"> 
+            
+              <app-date-range-selection  (dateRangeSelection)="DatumZasnivanja($event)"></app-date-range-selection>
+           
+          </th>
+          <th class="th-sm"> 
+            <app-date-range-selection  (dateRangeSelection)="DatumPrestanka($event)"></app-date-range-selection>
+          </th>
+          
+          <th class="th-sm"> <input type="text" class="form-control"  formControlName="netozarada">
+    
+            </th>
+            <th class="th-sm"> <input type="text" class="form-control" formControlName="brutozarada">
+    
+              </th>
+             <th class="th-sm"> <input type="text" class="form-control" formControlName="mestorada">
+    
+                  </th>
+                  
+                  <th class="th-sm"> <input type="text" class="form-control" formControlName="zahtevnastrucnasprema">
+    
+                  </th>
+                  <th class="th-sm"><div class="input-group">
+                    <span class="input-group-addon" style="max-width: 50%;"><i class="glyphicon glyphicon-list"></i></span>
+                    <select class="selectpicker form-control"  formControlName="pravnolice" >
+                
+                  <option value="DMS">  DMS</option>
+                         
+                  <option value="Pink">  Pink</option>
+                 </select>
+                 </div>
+    
+                  </th>
+                  
+                   
+        </tr>
+      <tr >
+          <th class="th-sm" >
+            
+           
+            </th>
+          
+        <th class="th-sm">
+           
+          Ime Prezime
+  
+        </th>
+        <th class="th-sm">L broj
+  
+        </th>
+
+        <th class="th-sm">
+            
+          Maticna evidecnija
+  
+          </th>
+        <th class="th-sm">Radno Mesto
+  
+        </th>
+        <th class="th-sm">Datum zasnivanja
+  
+        </th>
+        <th class="th-sm">Datum prestanka
+  
+        </th>
+        <th class="th-sm">Neto zarada 
+  
+          </th>
+          <th class="th-sm">Bruto zarada
+  
+            </th>
+           
+              <th class="th-sm">Mesto rada
+  
+                </th>
+                <th class="th-sm">Zahtevna strucnasprema
+  
+                </th>
+                <th class="th-sm">Pravno lice zaposlenog
+                </th>
+                
+                 
+      </tr>
+    </thead>
+    <tbody *ngFor="let ugovor of ugovori | async">
+      <tr style="cursor:pointer">
+          <td >
+                    
+              <div class="btn-group btn-group-xs" style="display: flex;">
+                  
+                      
+                      
+                      
+              <a routerLink="../show/{{ugovor.idugovor}}" routerLinkActive = "{exact:true}"class="btn btn-sm btn-default" data-toggle="tooltip" rel="tooltip"
+                 title="Show record">
+                  <i class="fa fa-search"></i>
+              </a>
+          
+                  
+                  <!---routerLink="../edit/{{ugovor.idugovor}}" -->
+                      
+                      
+                      
+              <a routerLink="../edit/{{ugovor.idugovor}}" class="btn btn-sm btn-default" data-toggle="tooltip" rel="tooltip"
+                 title="Edit record">
+                  <i class="fa fa-edit"></i>
+              </a>
+          
+                  
+                  
+                      
+              <a data-text="You sure you want to delete this item?" (click)="deleteUgovor(ugovor.idugovor)" class="btn btn-sm btn-default confirm" rel="tooltip"
+                  title="Delete record" data-toggle="modal" data-target="#modal-confirm">
+                  <i class="fa fa-eraser"></i>
+              </a>
+          
+                  
+              </div>
+          
+                              </td>
+        <td (click)="loguj(ugovor)">{{ugovor.imeprezime}}</td>
+        <td>{{ugovor.lbroj}}</td>
+        <td>{{ugovor.maticnievidencija}}</td>
+        <td>{{ugovor.radnomesto}}</td>
+        <td>{{ugovor.datumzasnivanja | date:"MM.dd.yyyy" }}</td>
+        <td>{{ugovor.datumprestanka | date:"MM.dd.yyyy" }}</td>
+        <td>{{ugovor.netozarada}}</td>
+        <td >{{ugovor.brutozarada}}</td>
+        <td >{{ugovor.mestorada}}</td>
+        <td>{{ugovor.zahtevnastrucnasprema }}</td>
+        <td>{{ugovor.pravnolice }}</td>
+        
+        
+      
+       
+        
+        
+      </tr>
+      
+    </tbody>
+    
+  </table>
+</form>

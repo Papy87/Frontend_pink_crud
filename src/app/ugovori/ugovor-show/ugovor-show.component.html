@@ -1,0 +1,42 @@
+<h1>Prikazi podatke</h1>
+<hr>
+<table class=" table table-striped table-bordered table-md table-sm table-dark">
+
+    <tbody *ngFor="let stavkaUgovora of ugovor">
+      <tr>
+        <th scope="row">Ime Prezime</th>
+        <td>{{stavkaUgovora.imeprezime}}</td>
+      </tr>
+      <tr>
+        <th scope="row">L broj</th>
+        <td>{{stavkaUgovora.lbroj}}</td>
+       
+      </tr>
+      <tr>
+        <th scope="row">Matični broj</th>
+        <td colspan="2">{{stavkaUgovora.maticnievidencija}}</td>
+      
+      </tr>
+     
+      <tr>
+        <th scope="row">Radno mesto</th>
+        <td colspan="2">{{stavkaUgovora.radnomesto}}</td>
+       
+      </tr>
+      <tr>
+        <th scope="row">Datum Pocetka</th>
+        <td colspan="2">{{stavkaUgovora.datumzasnivanja | date:"MM/dd/yy"}}</td>
+      
+      </tr>
+      <tr>
+        <th scope="row">Datum Prestanka</th>
+        <td colspan="2">{{stavkaUgovora.datumprestanka | date:"MM/dd/yy"}}</td>
+        
+      </tr>
+      <tr>
+        <th scope="row">Bruto zarada</th>
+        <td colspan="2">{{stavkaUgovora.brutozarada}}</td>
+        
+      </tr>
+    </tbody>
+  </table>

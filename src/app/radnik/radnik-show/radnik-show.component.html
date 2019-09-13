@@ -1,0 +1,42 @@
+<h1>Prikazi podatke</h1>
+<hr>
+<table class=" table table-striped table-bordered table-md table-sm table-dark">
+
+    <tbody *ngFor="let stavka of radnik">
+      <tr>
+        <th scope="row">Ime Prezime</th>
+        <td>{{stavka.imeprezime}}</td>
+      </tr>
+      <tr>
+        <th scope="row">JMBG</th>
+        <td>{{stavka.jmbg}}</td>
+       
+      </tr>
+      <tr>
+        <th scope="row">Adresa</th>
+        <td colspan="2">{{stavka.adresa}}</td>
+      
+      </tr>
+     
+      <tr>
+        <th scope="row">Radno mesto</th>
+        <td colspan="2">{{stavka.mesto}}</td>
+       
+      </tr>
+      <tr>
+        <th scope="row">Telefon</th>
+        <td colspan="2">{{stavka.telefon}}</td>
+      
+      </tr>
+      <tr>
+        <th scope="row">Stepen strucne spreme</th>
+        <td colspan="2">{{stavka.stepenstrucnespreme}}</td>
+        
+      </tr>
+      <tr>
+        <th scope="row">Stanje</th>
+        <td colspan="2">{{stavka.aktivan}}</td>
+        
+      </tr>
+    </tbody>
+  </table>

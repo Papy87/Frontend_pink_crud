@@ -1,0 +1,44 @@
+
+
+<body>
+
+    <div class="card card-login mx-auto text-center bg-dark">
+            <span class="logo_title mt-5" style="color: rgb(255, 255, 255)"><h2><b> Sign In </b></h2></span>
+        <div class="card-header mx-auto bg-dark">
+            <span *ngIf="error" class="logo_title mt-5"> {{errortext.error.errorMessage}} </span>
+            <span *ngIf="prazniPodaci" class="logo_title mt-5"> Proverite da li ste uneli podatke </span>
+         
+                        
+          
+
+        </div> 
+       
+        <div class="card-body">
+               
+            <form [formGroup]="form" action="" method="post" (ngSubmit)="onSubmit()">
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" name="email" class="form-control" placeholder="Username" formControlName="username">
+                </div>
+
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" name="password" class="form-control" placeholder="Password" formControlName="password">
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" name="btn" value="Login" class="btn btn-outline-danger float-right login_btn">
+                </div>
+
+            </form>
+        </div>
+        
+    </div>
+   
+  
+
+</body>

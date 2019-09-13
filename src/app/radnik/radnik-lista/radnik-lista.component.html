@@ -1,0 +1,158 @@
+<h1>Radnici</h1>
+<hr>
+<form  *ngIf="employeeForm"  [formGroup]="employeeForm" class="well form-horizontal"  (ngSubmit)="onSubmit()">
+  <div class="col-lg-6 col-sm-6 col-md-4  col-lg-offset-6 col-sm-offset-6 col-md-offset-6">
+    <a routerLink="../add" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Dodaj radnika</a>
+  </div>
+  <hr>
+  <table id="dtBasicExample" class="table table-striped table-bordered table-md table-hover " cellspacing="0"
+ width="100%" *ngIf="!error">
+    <thead>
+      <tr>
+        <th class="th-sm">
+          Pretraga
+        </th>
+        <th class="th-sm">
+          <input formControlName="imeprezime" type="text" class="form-control">
+        </th>
+        <th class="th-sm">
+          <input type="text" formControlName="jmbg" class="form-control">
+        </th>
+        <th class="th-sm">
+          <input type="text"  formControlName="adresa" class="form-control">
+        </th>
+        <th class="th-sm"> <input type="text" formControlName="mesto"   class="form-control">
+        </th> 
+        <th class="th-sm"> <input type="text" formControlName="telefon"  class="form-control">
+        </th>
+        <th class="th-sm"> <input type="text"  formControlName="mobilni" class="form-control">
+        </th>
+        <th class="th-sm"> <input type="text" formControlName="email"  class="form-control">
+        </th>
+        <th class="th-sm"> <input type="text"  formControlName="strucnasprema"  class="form-control">
+        </th>
+        <th class="th-sm">
+            <input type="text"  formControlName="stepenstrucnespreme"  class="form-control">
+        </th>
+        <th class="th-sm" >
+           
+            <div class="input-group">
+                <span class="input-group-addon" style="max-width: 50%;"><i class="glyphicon glyphicon-list"></i></span>
+                <select class="selectpicker form-control"  formControlName="aktivan" >
+            
+                 
+                 
+              <option value="aktivan">aktivan</option>
+                     
+              <option value="neaktivan">neaktivan</option>
+              <option value="mirovanje">mirovanje</option>
+         
+               
+                </select>
+             </div>
+        </th>
+      </tr>
+      <tr>
+        <th class="th-sm">
+
+
+        </th>
+
+        <th class="th-sm">
+
+          Ime Prezime
+
+        </th>
+        <th class="th-sm">Jmbg
+
+        </th>
+
+        <th class="th-sm">
+
+          Adresa
+
+        </th>
+        <th class="th-sm"> Mesto
+
+        </th>
+        <th class="th-sm">Telefon
+
+        </th>
+        <th class="th-sm">mobilni
+
+        </th>
+        <th class="th-sm">Email
+
+        </th>
+        <th class="th-sm">Strucna sprema
+
+          </th>
+        <th class="th-sm">Stepen strucnespreme
+
+        </th>
+
+        <th class="th-sm">Stanje zaposlenog radnika
+
+        </th>
+
+
+
+      </tr>
+    </thead>
+    <tbody *ngFor="let radnik of radnici | async ">
+      <tr style="cursor:pointer">
+        <td>
+
+          <div class="btn-group btn-group-xs" style="display: flex;">
+
+
+
+
+            <a routerLink="../show/{{radnik.id}}" routerLinkActive="{exact:true}" class="btn btn-sm btn-default"
+              data-toggle="tooltip" rel="tooltip" title="Show record">
+              <i class="fa fa-search"></i>
+            </a>
+
+
+            <!---routerLink="../edit/{{ugovor.idugovor}}" -->
+
+
+
+            <a routerLink="../edit/{{radnik.id}}" class="btn btn-sm btn-default" data-toggle="tooltip" rel="tooltip"
+              title="Edit record">
+              <i class="fa fa-edit"></i>
+            </a>
+
+
+
+
+            <a data-text="You sure you want to delete this item?" 
+              class="btn btn-sm btn-default confirm" rel="tooltip" title="Delete record" data-toggle="modal"
+              data-target="#modal-confirm">
+              <i class="fa fa-eraser"></i>
+            </a>
+
+
+          </div>
+
+        </td>
+        <td>{{radnik.imeprezime}}</td>
+        <td>{{radnik.jmbg}}</td>
+        <td>{{radnik.adresa}}</td>
+        <td>{{radnik.mesto}}</td>
+        <td>{{radnik.telefon}}</td>
+        <td>{{radnik.mobilni}}</td>
+        <td>{{radnik.email}}</td>
+        <td>{{radnik.strucnasprema}}</td>
+        <td>{{radnik.stepenstrucnespreme}}</td>
+       <td>{{radnik.aktivan}}</td>
+
+
+
+
+      </tr>
+
+    </tbody>
+
+  </table>
+</form>

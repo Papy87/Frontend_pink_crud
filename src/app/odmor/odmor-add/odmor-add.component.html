@@ -1,1 +1,43 @@
-<p>odmor-add works!</p>
+<h1>
+    Dodaj Odmor</h1>
+<hr>
+<table class="table table-striped">
+    <tbody>
+        <tr>
+            <td colspan="1">
+                <form *ngIf="odmorForm" [formGroup]="odmorForm" class="well form-horizontal" (ngSubmit)="onSubmit()">
+                    <fieldset>
+
+                        <div class="form-group required">
+                            <label class="col-md-6 control-label"><b>Sezona</b></label>
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="addressLine2" name="addressLine2" class="form-control" formControlName="sezona" required="true" value="" type="text"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 inputGroupContainer">
+                            <label><b>Datum početka</b></label>
+                            <input type="text" name="bday" min="1000-01-01" max="3000-12-31" class="form-control date" bsDatepicker formControlName="datumPocetka">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-6 control-label"><b>Broj Dana</b></label>
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input formControlName="radnihdana" id="postcode" name="postcode" class="form-control" value="" type="text"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-6 control-label"><b>Napomena</b></label>
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span><textarea formControlName="napomena" class="form-control" type="text"></textarea></div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <button class="btn btn-success" type="submit" [disabled]="!ugovorForm.valid">Promeni</button>
+                </form>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
